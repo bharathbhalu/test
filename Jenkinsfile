@@ -68,7 +68,7 @@ pipeline {
       parallel {
         stage('Amazon ECR') {
           steps {
-            echo 'AMAZON'
+            echo 'Image Push to ECR is Done'
           }
         }
         stage('Jfrog') {
