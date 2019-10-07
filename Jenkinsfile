@@ -52,7 +52,7 @@ pipeline {
             echo 'LINUX'
           }
         }
-        stage('Mac Testss') {
+        stage('Mac Tests') {
           steps {
             echo 'MAC'
           }
