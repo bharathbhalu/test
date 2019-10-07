@@ -40,7 +40,7 @@ pipeline {
         echo 'PCS is done'
       }
     }
-    stage('Image Upload-Jfrog') {
+    stage('Image Uploads') {
       parallel {
         stage('Image Upload-Jfrog') {
           steps {
