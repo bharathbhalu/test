@@ -40,5 +40,19 @@ pipeline {
         echo 'PCS is done'
       }
     }
+    stage('Image Upload-Jfrog') {
+      parallel {
+        stage('Image Upload-Jfrog') {
+          steps {
+            echo 'Images Uploaded to Jfrog'
+          }
+        }
+        stage('Image Upload-DockerHub') {
+          steps {
+            echo 'DockerHub Image Upload Done'
+          }
+        }
+      }
+    }
   }
 }
