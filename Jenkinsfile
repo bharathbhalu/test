@@ -11,7 +11,7 @@ pipeline {
         echo 'Code Coverage is Done'
       }
     }
-    stage('TS build') {
+    stage('Builds') {
       parallel {
         stage('TS build') {
           steps {
