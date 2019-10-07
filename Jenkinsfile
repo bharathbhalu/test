@@ -1,16 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage('SA') {
-      steps {
-        echo 'SA Success'
-      }
-    }
-    stage('CodeCoverage') {
-      steps {
-        echo 'Code Coverage is Done'
-      }
-    }
     stage('Builds') {
       parallel {
         stage('TS build') {
@@ -35,21 +25,55 @@ pipeline {
         }
       }
     }
-    stage('PCS') {
+    stage('SA') {
       steps {
-        echo 'PCS is done'
+        echo 'Static Analysis Done'
+      }
+    }
+    stage('Unit-Test(CodeCoverage)') {
+      steps {
+        echo 'Unit Tests are Done'
+      }
+    }
+    stage('PCS') {
+      parallel {
+        stage('TS Tests') {
+          steps {
+            echo 'TS'
+          }
+        }
+        stage('Windows Tests') {
+          steps {
+            echo 'Windows'
+          }
+        }
+        stage('Linux Tests') {
+          steps {
+            echo 'LINUX'
+          }
+        }
+        stage('Mac Testss') {
+          steps {
+            echo 'MAC'
+          }
+        }
+        stage('NCM Tests') {
+          steps {
+            echo 'NCM'
+          }
+        }
       }
     }
     stage('Image Uploads') {
       parallel {
-        stage('Image Upload-Jfrog') {
+        stage('Amazon ECR') {
           steps {
-            echo 'Images Uploaded to Jfrog'
+            echo 'AMAZON'
           }
         }
-        stage('Image Upload-Amazon-ECR/DockerHub') {
+        stage('Jfrog') {
           steps {
-            echo 'DockerHub Image Upload Done'
+            echo 'JFROG'
           }
         }
       }
