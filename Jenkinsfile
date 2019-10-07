@@ -30,7 +30,7 @@ pipeline {
         echo 'Static Analysis Done'
       }
     }
-    stage('Unit-Test(CodeCoverage)') {
+    stage('Unit-Test') {
       steps {
         echo 'Unit Tests are Done'
       }
