@@ -47,7 +47,7 @@ pipeline {
             echo 'Images Uploaded to Jfrog'
           }
         }
-        stage('Image Upload-DockerHub') {
+        stage('Image Upload-Amazon-ECR/DockerHub') {
           steps {
             echo 'DockerHub Image Upload Done'
           }
